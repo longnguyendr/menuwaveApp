@@ -1,18 +1,30 @@
 # menuwaveApp
 For running locally:
+
 First open in your command prompt (Windows) or Terminal (Unix):
+
 $ vagrant up
+
 $ vagrant ssd
+
 And then navigate to your project folder:
+
 $ cd /vagrant/menuwaveApp
+
 Run composer install to install dependencies:
+
 $ composer install
 ---
 To stop vagrant:
+
 Enter exit in your virtual machine and then halt or suspend your vagrant with:
+
 $ vagrant halt
+
 or
+
 $ vagrant suspend
+
 ---
 To use JS and CSS in Symfony project, inside /public in your root, add new folder named it 'build' and add css and your js files here.
 More info: 
