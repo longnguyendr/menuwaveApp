@@ -1,4 +1,6 @@
-# menuwaveApp
+# Menu Wave
+The section below is for development
+---
 For running locally:
 
 First open in your command prompt (Windows) or Terminal (Unix):
