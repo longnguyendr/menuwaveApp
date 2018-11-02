@@ -8,7 +8,7 @@ First open in your command prompt (Windows) or Terminal (Unix):
 $ vagrant up
 ```
 ```
-$ vagrant ssd
+$ vagrant ssh
 ```
 And then navigate to your project folder:
 ```
@@ -18,7 +18,10 @@ Run composer install to install dependencies:
 ```
 $ composer install
 ```
+Here you can go to the application with localhost:1111
+
 ---
+
 To stop vagrant:
 
 Enter exit in your virtual machine and then halt or suspend your vagrant with:
