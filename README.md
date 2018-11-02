@@ -18,8 +18,10 @@ Run composer install to install dependencies:
 ```
 $ composer install
 ```
-Here you can go to the application with localhost:1111
-
+Here you can go to the application with  
+```
+localhost:1111
+```
 ---
 
 To stop vagrant:
