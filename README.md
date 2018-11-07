@@ -20,7 +20,7 @@ $ composer install
 ```
 Here you can go to the application with  
 ```
-localhost:1111
+localhost:1234
 ```
 ---
 
