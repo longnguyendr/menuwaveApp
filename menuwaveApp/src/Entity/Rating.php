@@ -40,11 +40,6 @@ class Rating
     private $place;
 
     /**
-     * @ORM\Column(type="array", nullable=true)
-     */
-    private $pictures = [];
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="ratings", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
@@ -55,9 +50,15 @@ class Rating
      */
     private $votes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Pictures", mappedBy="rating", cascade={"persist"})
+     */
+    private $pictures;
+
     public function __construct()
     {
         $this->votes = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -113,18 +114,6 @@ class Rating
         return $this;
     }
 
-    public function getPictures(): ?array
-    {
-        return $this->pictures;
-    }
-
-    public function setPictures(?array $pictures): self
-    {
-        $this->pictures = $pictures;
-
-        return $this;
-    }
-
     public function getAuthor(): ?User
     {
         return $this->author;
@@ -162,6 +151,37 @@ class Rating
             // set the owning side to null (unless already changed)
             if ($vote->getRating() === $this) {
                 $vote->setRating(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Pictures[]
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Pictures $picture): self
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures[] = $picture;
+            $picture->setRating($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Pictures $picture): self
+    {
+        if ($this->pictures->contains($picture)) {
+            $this->pictures->removeElement($picture);
+            // set the owning side to null (unless already changed)
+            if ($picture->getRating() === $this) {
+                $picture->setRating(null);
             }
         }
 
