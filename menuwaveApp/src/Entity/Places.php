@@ -49,18 +49,13 @@ class Places
     private $status;
 
     /**
-     * @ORM\Column(type="array", nullable=true)
-     */
-    private $pictures = [];
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Rating", mappedBy="place", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $ratings;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="places", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
@@ -69,10 +64,16 @@ class Places
      */
     private $requests;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Pictures", mappedBy="places", cascade={"persist"})
+     */
+    private $pictures;
+
     public function __construct()
     {
         $this->ratings = new ArrayCollection();
         $this->requests = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -152,18 +153,6 @@ class Places
         return $this;
     }
 
-    public function getPictures(): ?array
-    {
-        return $this->pictures;
-    }
-
-    public function setPictures(?array $pictures): self
-    {
-        $this->pictures = $pictures;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Rating[]
      */
@@ -232,6 +221,37 @@ class Places
             // set the owning side to null (unless already changed)
             if ($request->getPlace() === $this) {
                 $request->setPlace(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Pictures[]
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Pictures $picture): self
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures[] = $picture;
+            $picture->setPlaces($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Pictures $picture): self
+    {
+        if ($this->pictures->contains($picture)) {
+            $this->pictures->removeElement($picture);
+            // set the owning side to null (unless already changed)
+            if ($picture->getPlaces() === $this) {
+                $picture->setPlaces(null);
             }
         }
 
