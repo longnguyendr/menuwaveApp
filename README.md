@@ -1,7 +1,7 @@
 # Menu Wave
 The section below is for development
 ---
-For running locally:
+#### For running locally:
 
 First open in your command prompt (Windows) or Terminal (Unix):
 ```
@@ -24,7 +24,7 @@ localhost:1234
 ```
 ---
 
-To stop vagrant:
+#### To stop vagrant:
 
 Enter exit in your virtual machine and then halt or suspend your vagrant with:
 ```
@@ -35,7 +35,7 @@ or
 $ vagrant suspend
 ```
 ---
-To use JS and CSS in Symfony project
+#### To use JS and CSS in Symfony project
 
 In root, find /assets folder, then add css file and js file.
 
@@ -47,7 +47,7 @@ npm install & npm run dev
 ```
 Then add new file to your html.twig template.
 
-
+---
 
 More info: 
 
