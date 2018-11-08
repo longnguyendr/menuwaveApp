@@ -35,7 +35,19 @@ or
 $ vagrant suspend
 ```
 ---
-To use JS and CSS in Symfony project, inside /public in your root, add new folder named it 'build' and add css and your js files here.
+To use JS and CSS in Symfony project
+
+In root, find /assets folder, then add css file and js file.
+
+In `webpack.config.js` add `.addEntry('<name of entry>', '<link to entry>')` or `.addStyleEntry('<name of entry>', '<link to entry>')` where the link is the link to files in assets folder.
+
+Run the command below to generate file css and js to public/build (This should be run everytime you edit `webpack.config.js`)
+```
+npm install & npm run dev 
+```
+Then add new file to your html.twig template.
+
+
 
 More info: 
 
