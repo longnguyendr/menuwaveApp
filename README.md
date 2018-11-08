@@ -1,5 +1,6 @@
 # Menu Wave
-The section below is for development
+
+### The section below is for development
 ---
 #### For running locally:
 
@@ -19,9 +20,9 @@ Run composer install to install dependencies:
 $ composer install
 ```
 Here you can go to the application with  
-```
+````
 localhost:1234
-```
+````
 ---
 
 #### To stop vagrant:
@@ -39,17 +40,23 @@ $ vagrant suspend
 
 In root, find /assets folder, then add css file and js file.
 
-In `webpack.config.js` add `.addEntry('<name of entry>', '<link to entry>')` or `.addStyleEntry('<name of entry>', '<link to entry>')` where the link is the link to files in assets folder.
 
-Run the command below to generate file css and js to public/build (This should be run everytime you edit `webpack.config.js`)
+In ``webpack.config.js`` , 
+
+Add ``.addEntry('<name of entry>', '<link to entry>')`` or ``.addStyleEntry('<name of entry>', '<link to entry>')`` where the link is the link to files in assets folder.
+
+
+Run the command below to generate file css and js to public/build (This should be run everytime you edit ``webpack.config.js`` )
+
 ```
 npm install & npm run dev 
 ```
+
 Then add new file to your html.twig template.
 
 ---
 
-More info: 
+#### More info: 
 
 [Example of using webpack encore in symfony](https://symfony.com/doc/current/frontend/encore/simple-example.html)
 
