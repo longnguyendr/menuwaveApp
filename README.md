@@ -2,6 +2,14 @@
 
 ### The section below is for development
 ---
+#### This should be done after cloning/pulling:
+```
+composer install
+```
+```
+npm install & npm run dev
+```
+---
 #### For running locally:
 
 First open in your command prompt (Windows) or Terminal (Unix):
