@@ -57,7 +57,8 @@ Add ``.addEntry('<name of entry>', '<link to entry>')`` or ``.addStyleEntry('<na
 Run the command below to generate file css and js to public/build (This should be run everytime you edit ``webpack.config.js`` )
 
 ```
-npm install & npm run dev 
+npm install
+npm run dev 
 ```
 
 Then add new file to your html.twig template.
