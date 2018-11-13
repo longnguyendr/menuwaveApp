@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
 
   
-  config.vm.synced_folder ".", "/vagrant" #, type: "nfs" #uncomment if vagrant doesn't work
+  config.vm.synced_folder ".", "/vagrant" , type: "nfs" #uncomment if vagrant doesn't work
 
 
   # Provider-specific configuration so you can fine-tune various
