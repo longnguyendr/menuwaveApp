@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # NOTE: This will enable public access to the opened port
   # config.vm.network "forwarded_port", guest: 80, host: 8080
-  config.vm.network :forwarded_port, guest: 80, host: 1234
+  config.vm.network :forwarded_port, guest: 80, host: 1235
   config.vm.network :forwarded_port, guest: 8000, host: 12345
   #config.vm.network :forwarded_port, guest: 443, host: 443
 
@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
 
   
-  config.vm.synced_folder ".", "/vagrant" #, type: "nfs" #uncomment if vagrant doesn't work
+  config.vm.synced_folder ".", "/vagrant" , type: "nfs" #uncomment if vagrant doesn't work
 
 
   # Provider-specific configuration so you can fine-tune various
