@@ -28,31 +28,24 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-
-            {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-
-                    <li class="nav-item" id="search">
+                    <li class="nav-item" id="home">
                         <a class="nav-link" href="#">Home</a>
                     </li>
+                    <li class="nav-item" id="search">
+                        <a class="nav-link" href="#">Search</a>
+                        <!-- Search box here-->
+                    </li>
+            {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+
                     <li class="nav-item" id="login">
                         <a class="nav-link" href="#">Sign in</a>
                     </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
 
-            {% else %}
-
-                    <li class="nav-item" id="topnav">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item" id="projectsnav">
-                        <a class="nav-link" href="/#projects">Projects</a>
-                    </li>
-                    <li class="nav-item" id="profilenav">
-                        <a class="nav-link" href="/profile">Profile</a>
-                    </li>
-                    <li class="nav-item" id="somenav">
-                        <a class="nav-link" href="/#social-media">Social Media</a>
-                    </li>
-
+                <li class="nav-item" id="search">
+                    <a class="nav-link" href="{{ path('create_new_place') }}">New place</a>
+                </li>
             {% endif %}
 
                 </ul>

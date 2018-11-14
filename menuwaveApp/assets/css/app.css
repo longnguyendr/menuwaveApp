@@ -43,6 +43,9 @@ nav#main-navbar {
     .custom-nav a.navbar-brand{
         font-size: 30px;
     }
+    .custom-nav a.navbar-brand img{
+        width: 120%;
+    }
 }
 
 @media (max-width: 400px) {
