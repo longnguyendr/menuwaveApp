@@ -6,7 +6,7 @@ body {
 }
 
 nav#main-navbar {
-    background: #1b1e21 ;
+    background: #8bd5cb !important ;
 }
 
 .custom-nav a.navbar-brand{
@@ -14,7 +14,7 @@ nav#main-navbar {
     font-weight: bold;
     font-size: 1.7rem;
     padding: 3px;
-
+    color: #f76262;
 }
 .custom-nav {
     font-family: 'Ubuntu Mono', monospace !important;
@@ -23,7 +23,17 @@ nav#main-navbar {
 
 .custom-nav a.nav-link{
     font-size: 20px;
+    color: #974949;
 }
+
+.custom-nav a.nav-link:hover, a.nav-link:active{
+    color: #071e3d;
+}
+
+.page-content {
+    margin-top: 60px;
+}
+
 
 @media (min-width: 800px) {
     .custom-nav a.nav-link{
@@ -35,9 +45,12 @@ nav#main-navbar {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 400px) {
 
     .custom-nav a.navbar-brand{
         font-size: 23px;
+    }
+    .custom-nav a.navbar-brand img{
+        width: 60%;
     }
 }

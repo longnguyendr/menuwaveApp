@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="{{ asset('img/icon.png') }}">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('build/global.css') }}" />
@@ -18,7 +19,9 @@
     {# page custom js files#}
     {% block javascripts %}{% endblock %}
         <nav class="navbar navbar-expand-md fixed-top navbar-dark custom-nav" id="main-navbar">
-            <a class="navbar-brand" href="/">MenuWave</a>
+            <a class="navbar-brand" href="/">
+                <img alt="MenuWave" src=" {{ asset('img/logo.png') }}" style="object-fit: cover;">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars fa-2x toggle-btn"></i>
             </button>
@@ -56,9 +59,8 @@
             </div>
 
         </nav>
-        {% block body %}{% endblock %}
-
-
-
+        <div class="page-content">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>

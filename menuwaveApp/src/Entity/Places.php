@@ -69,11 +69,17 @@ class Places
      */
     private $pictures;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="places")
+     */
+    private $category;
+
     public function __construct()
     {
         $this->ratings = new ArrayCollection();
         $this->requests = new ArrayCollection();
         $this->pictures = new ArrayCollection();
+        $this->category = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -253,6 +259,32 @@ class Places
             if ($picture->getPlaces() === $this) {
                 $picture->setPlaces(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategory(): Collection
+    {
+        return $this->category;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->category->contains($category)) {
+            $this->category[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        if ($this->category->contains($category)) {
+            $this->category->removeElement($category);
         }
 
         return $this;

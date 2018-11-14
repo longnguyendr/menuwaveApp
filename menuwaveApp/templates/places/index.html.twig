@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Places index{% endblock %}
+
+{% block body %}
+    <h1>Places index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>OpenHour</th>
+                <th>CloseHour</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for place in places %}
+            <tr>
+                <td>{{ place.id }}</td>
+                <td>{{ place.title }}</td>
+                <td>{{ place.description }}</td>
+                <td>{{ place.openHour ? place.openHour|date('H:i:s') : '' }}</td>
+                <td>{{ place.closeHour ? place.closeHour|date('H:i:s') : '' }}</td>
+                <td>{{ place.status }}</td>
+                <td>
+                    <a href="{{ path('places_show', {'id': place.id}) }}">show</a>
+                    <a href="{{ path('places_edit', {'id': place.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('create_new_place') }}">Create new</a>
+{% endblock %}
